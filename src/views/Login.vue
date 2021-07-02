@@ -1,8 +1,9 @@
 <template>
    <v-container class="d-flex justify-center">
       <v-card class="login">
+         <v-img src="../assets/jmc_logo2.png" class="jmc_logo"></v-img>
          <v-card-title class="justify-center capitalize" >
-            <span class="text-uppercase">Sign in</span>
+            <span class="text-uppercase">Client management System App</span>
          </v-card-title>
          <v-card-text>
             <v-form ref="form">
@@ -11,6 +12,7 @@
                   type="email"
                   label="E-mail"
                   :rules="emailRule"
+                  v-on:keyup.enter="submit"
                   required
                ></v-text-field>
                <v-text-field
@@ -18,27 +20,24 @@
                   label="Password"
                   type="password"
                   :rules="passwordRule"
+                   v-on:keyup.enter="submit"
                   required
                ></v-text-field>
                   <v-btn v-if="!isPending"
-                  class="mr-4"
+                  class="mr-4 signinbtn"
                   color="primary"
+                  style="height: 3rem"
                   @click="submit"
                   >
-                  <v-icon class="mr-2">login</v-icon>
-                  Sign in
-                  </v-btn>
+                     Sign in
+                     </v-btn>
                   <v-btn v-if="isPending"
-                  class="mr-4"
+                  class="mr-4 signinbtn"
                   color="primary"
                   disabled
                   >
-                  Loading...
+                  Loading...Please wait...
                   </v-btn>
-                  <v-btn @click="clear">
-                     clear
-                  </v-btn>
-                  <v-spacer class="mb-5"></v-spacer>
                   <!-- Don't have an account yet?
                   <router-link :to="{ name: 'Signup'}">
                   <span right>Sign up</span>
@@ -97,10 +96,6 @@ export default {
             // }
          }
       },
-      clear(){
-         this.email = '' ,
-         this.password = ''
-      },
       updateRoute(){
          if(this.user){
             this.$router.push({ name: 'Home' })
@@ -120,10 +115,20 @@ export default {
 
 <style scoped>
    .login{
-      width: 500px;
-      margin-top:4.3rem;
+      margin-top:6rem;
+      width: 24rem;
+   }
+   .signinbtn{
+      width: 100%;
+      padding:1rem;
    }
    a{
       text-decoration: none;
    }
+   .jmc_logo{
+      width: 9rem;
+      margin-left: 7.3rem;
+      margin-top: -3.4rem;
+   }
+
 </style>
