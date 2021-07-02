@@ -1,18 +1,35 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+   <div>
+      <v-container>
+         <div v-if="user">
+            <DataTable />
+         </div>
+      </v-container>
+   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import{projectAuth} from '../firebase/config'
+import DataTable from '../components/DataTable'
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+     DataTable
+  },
+  data(){
+     return {
+        user: projectAuth.currentUser
+     }
+  },
+  methods: {
+     
+  },
+  mounted(){
+     projectAuth.onAuthStateChanged(_user => {
+        this.user = _user
+     })
   }
 }
 </script>
