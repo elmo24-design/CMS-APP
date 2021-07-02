@@ -127,7 +127,7 @@ export default {
    }
    .jmc_logo{
       width: 9rem;
-      margin-left: 7.3rem;
+      margin-left: 7.4rem;
       margin-top: -3.4rem;
    }
 
