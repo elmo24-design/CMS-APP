@@ -3,7 +3,7 @@
       <v-card class="login">
          <v-img src="../assets/jmc_logo2.png" class="jmc_logo"></v-img>
          <v-card-title class="justify-center capitalize" >
-            <span class="text-uppercase">Client management System App</span>
+            <span class="text-uppercase title">Client management System</span>
          </v-card-title>
          <v-card-text>
             <v-form ref="form">
@@ -118,6 +118,9 @@ export default {
       margin-top:6rem;
       width: 24rem;
    }
+   .title{
+      text-align: center;
+   }
    .signinbtn{
       width: 100%;
       padding:1rem;
@@ -129,6 +132,11 @@ export default {
       width: 9rem;
       margin-left: 7.4rem;
       margin-top: -3.4rem;
+   }
+   @media(max-width: 400px){
+      .jmc_logo{
+         margin-left: 6.3rem;
+      }
    }
 
 </style>
